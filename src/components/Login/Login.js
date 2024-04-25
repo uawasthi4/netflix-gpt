@@ -8,14 +8,13 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../utils/userSlice";
+import { USER_PHOTO } from "../../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -51,8 +50,7 @@ const Login = () => {
             const user = userCredential.user;
             updateProfile(user, {
               displayName: currentName,
-              photoURL:
-                "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png",
+              photoURL: USER_PHOTO,
             })
               .then(() => {
                 // Profile updated!
@@ -65,13 +63,10 @@ const Login = () => {
                     photoURL: photoURL,
                   })
                 );
-                navigate("/browse");
               })
               .catch((error) => {
                 // An error occurred
               });
-            console.log(user);
-            // ...
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -84,9 +79,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, currentEmail, currentPassword)
           .then((userCredential) => {
             // Signed in
-            const user = userCredential.user;
-            navigate("/browse");
-            console.log(user);
+            // const user = userCredential.user;
             // ...
           })
           .catch((error) => {
@@ -99,7 +92,7 @@ const Login = () => {
   }
 
   return (
-    <div className="background-image h-full bg-no-repeat bg-center bg-cover min-h-screen">
+    <div className="absolute background-image h-full bg-no-repeat bg-center bg-cover min-h-screen w-screen">
       <Header />
       <form
         onSubmit={(e) => e.preventDefault()}
