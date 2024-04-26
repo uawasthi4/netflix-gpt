@@ -1,15 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import {
-  faInfo,
-  faInfoCircle,
-  faPlay,
-} from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle, faPlay } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="px-24 absolute text-white bg-gradient-to-r from-black aspect-video pt-[20%]">
+    <div className="px-16 absolute text-white bg-gradient-to-r from-black w-screen aspect-video pt-[20%]">
       <h1 className="text-4xl font-bold">{title}</h1>
       <p className="py-6 text-lg w-1/4">{overview}</p>
       <div>

@@ -29,6 +29,12 @@
 - Custom Hook for use Trailer Video
 - Embedded youtube video and make it autoplay and mute
 - Added tailwind classes for main container.
+- Build Secondary Container
+- Built Movie List
+- Built Movie Card
+- Added TMDB Image CDN
+- Improved Browse Page UI with tailwind
+- Custom Hooks for different types of movies
 
 # Features -
 
