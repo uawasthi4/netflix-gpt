@@ -35,6 +35,11 @@
 - Added TMDB Image CDN
 - Improved Browse Page UI with tailwind
 - Custom Hooks for different types of movies
+- GPT Search Feature
+- GPT Search Page
+- GPT Search Bar
+- Multi-Language support
+- Integrate GPT APIs(get OpenAI keys)
 
 # Features -
 

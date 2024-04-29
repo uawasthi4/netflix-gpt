@@ -25,3 +25,9 @@ export const TMDB_API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZmVlOGFiMjEzMTZjODMzNzhlNTE4ZTA3NmFhODU0OCIsInN1YiI6IjY2MmFiMjQwNzY0ODQxMDExYzJiZWI5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qBEJb_y4_56CBB0wJO_T5xtHT_g07PSlgn4ZEddw0R8",
   },
 };
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en-US", name: "English" },
+  { identifier: "hi-IN", name: "Hindi" },
+  { identifier: "es-ES", name: "Spanish" },
+];
