@@ -39,7 +39,7 @@
 - GPT Search Page
 - GPT Search Bar
 - Multi-Language support
-- Integrate GPT APIs(get OpenAI keys)
+- Integrate Gemini Pro APIs(get Google GeminiPro keys)
 
 # Features -
 

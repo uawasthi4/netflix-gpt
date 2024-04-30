@@ -5,7 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../../utils/userSlice";
 import { NETFLIX_LOGO, SUPPORTED_LANGUAGES } from "../../utils/constants";
-import { toggleGptSearchView } from "../../utils/gptSearchSlice";
+import {
+  addGptMovieResults,
+  toggleGptSearchView,
+} from "../../utils/gptSearchSlice";
 import { changeLanguage } from "../../utils/configSlice";
 
 const Header = () => {
@@ -53,6 +56,12 @@ const Header = () => {
   function handleGptSearchClick() {
     // Toggle GPT Search
     dispatch(toggleGptSearchView());
+    dispatch(
+      addGptMovieResults({
+        gptMovieResults: null,
+        gptMovieNames: null,
+      })
+    );
   }
 
   function handleLanguageChange(e) {

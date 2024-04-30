@@ -21,8 +21,7 @@ export const TMDB_API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZmVlOGFiMjEzMTZjODMzNzhlNTE4ZTA3NmFhODU0OCIsInN1YiI6IjY2MmFiMjQwNzY0ODQxMDExYzJiZWI5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qBEJb_y4_56CBB0wJO_T5xtHT_g07PSlgn4ZEddw0R8",
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
 
@@ -31,3 +30,7 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hi-IN", name: "Hindi" },
   { identifier: "es-ES", name: "Spanish" },
 ];
+
+export const CLAUDEAI_KEY = process.env.REACT_APP_CLAUDEAI_KEY;
+
+export const GOOGLEAI_KEY = process.env.REACT_APP_GOOGLEAI_KEY;
