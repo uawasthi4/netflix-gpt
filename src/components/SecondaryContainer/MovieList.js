@@ -3,8 +3,8 @@ import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
   return (
-    <div className="px-16 bg-transparent">
-      <h1 className="text-2xl py-2 text-white cursor-default hover:opacity-80">
+    <div className="px-10 md:px-16 bg-transparent">
+      <h1 className="text-lg md:text-2xl py-2 text-white cursor-default hover:opacity-80">
         {title}
       </h1>
       <div className="flex overflow-x-scroll overflow-y-hidden">

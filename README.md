@@ -39,7 +39,14 @@
 - GPT Search Page
 - GPT Search Bar
 - Multi-Language support
+- Get GeminiPro API Keys
 - Integrate Gemini Pro APIs(get Google GeminiPro keys)
+- Fetch GPT movie suggestions
+- Created GPT Slice and Added search movie data
+- Reused movie-list component to make movie suggestion container
+- memoization
+- Created and added .env file to .gitignore
+- Made mobile friendly
 
 # Features -
 

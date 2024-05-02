@@ -69,10 +69,10 @@ const Header = () => {
   }
 
   return (
-    <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-48" src={NETFLIX_LOGO} alt="Netflix Logo"></img>
+    <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between flex-col md:flex-row">
+      <img className="w-48 md:mx-0 mx-auto" src={NETFLIX_LOGO} alt="Netflix Logo"></img>
       {user && (
-        <div className="flex align-middle p-2">
+        <div className="justify-between md:justify-normal flex align-middle p-2">
           {showGptSearchView && (
             <select
               className="p-3 m-2 bg-gray-800 text-white rounded-md opacity-90 hover:bg-gray-600 cursor-pointer"
@@ -93,7 +93,7 @@ const Header = () => {
           </button>
           <img
             alt="user-icon"
-            className="w-8 h-8 mt-4"
+            className="w-8 h-8 mt-4 hidden md:inline-block"
             width={30}
             height={30}
             src={user?.photoURL}
