@@ -7,15 +7,19 @@ const MovieList = ({ title, movies }) => {
       <h1 className="text-lg md:text-2xl py-2 text-white cursor-default hover:opacity-80">
         {title}
       </h1>
-      <div className="flex overflow-x-scroll overflow-y-hidden">
+      <div className="flex overflow-x-scroll overflow-y-hidden" aria-label={`Movie list for ${title}`}>
         <div className="flex">
-          {movies?.map((movie) => (
-            <MovieCard
-              key={movie.id}
-              posterPath={movie.poster_path}
-              title={movie.title}
-            />
-          ))}
+          {!movies ? (
+            <span className="text-white">Loading movies...</span>
+          ) : (
+            movies.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                posterPath={movie.poster_path}
+                title={movie.title}
+              />
+            ))
+          )}
         </div>
       </div>
     </div>

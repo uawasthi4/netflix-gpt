@@ -7,7 +7,13 @@ const VideoBackground = ({ movieId }) => {
   useMovieTrailer(movieId);
   const movieTrailer = useSelector((store) => store.movies?.movieTrailer);
 
-  if (!movieTrailer) return;
+  if (!movieTrailer) {
+    return (
+      <div className="w-screen aspect-video flex items-center justify-center">
+        <span className="text-white">Loading trailer...</span>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -17,6 +23,7 @@ const VideoBackground = ({ movieId }) => {
         title="Youtube Movie Player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
+        aria-label="Movie trailer video player"
       ></iframe>
     </div>
   );

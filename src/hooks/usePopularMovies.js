@@ -9,11 +9,14 @@ const usePopularMovies = () => {
   const popularMovies = useSelector((store) => store.movies.nowPlayingMovies);
 
   const getPopularMovies = async () => {
-    const data = await fetch(POPULAR_MOVIES_URL, TMDB_API_OPTIONS);
-
-    const json = await data.json();
-
-    dispatch(addPopularMovies(json.results));
+    try {
+      const data = await fetch(POPULAR_MOVIES_URL, TMDB_API_OPTIONS);
+      const json = await data.json();
+      dispatch(addPopularMovies(json.results));
+    } catch (error) {
+      // Optionally dispatch error to store or show UI feedback
+      console.error('Failed to fetch popular movies:', error);
+    }
   };
   useEffect(() => {
     !popularMovies && getPopularMovies();

@@ -5,26 +5,28 @@ import { addMovieTrailer } from "../utils/movieSlice";
 
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
+  const trailerVideo = useSelector((store) => store.movies.movieTrailer);
+
   useEffect(() => {
-    !trailerVideo && getMovieVideo();
+    if (!trailerVideo) getMovieVideo();
+    // eslint-disable-next-line
   }, []);
 
-  const trailerVideo = useSelector((store) => store.movies.movieVideo);
-
   const getMovieVideo = async () => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos`,
-      TMDB_API_OPTIONS
-    );
-    const json = await data.json();
-
-    const mainVideo = json.results.filter(
-      (video) => video.type === "Trailer" && video.name === "Official Trailer"
-    );
-
-    const trailer = mainVideo.length ? mainVideo[0] : json.results?.[0];
-
-    dispatch(addMovieTrailer(trailer));
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}/videos`,
+        TMDB_API_OPTIONS
+      );
+      const json = await data.json();
+      const mainVideo = json.results.filter(
+        (video) => video.type === "Trailer" && video.name === "Official Trailer"
+      );
+      const trailer = mainVideo.length ? mainVideo[0] : json.results?.[0];
+      dispatch(addMovieTrailer(trailer));
+    } catch (error) {
+      console.error('Failed to fetch movie trailer:', error);
+    }
   };
 };
 

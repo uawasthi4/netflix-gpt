@@ -26,9 +26,23 @@ const Login = () => {
 
   function handleButtonClick() {
     // Validate the form data
-    const currentName = !isSignInForm ? nameRef.current.value : "";
-    const currentEmail = emailRef.current.value;
+    const currentName = !isSignInForm ? nameRef.current.value.trim() : "";
+    const currentEmail = emailRef.current.value.trim();
     const currentPassword = passwordRef.current.value;
+
+    // Additional validation for empty fields
+    if (!isSignInForm && !currentName) {
+      setErrorMessage("Name is required");
+      return;
+    }
+    if (!currentEmail) {
+      setErrorMessage("Email is required");
+      return;
+    }
+    if (!currentPassword) {
+      setErrorMessage("Password is required");
+      return;
+    }
 
     const message = checkValidData(
       isSignInForm,

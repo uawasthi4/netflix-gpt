@@ -11,11 +11,14 @@ const useNowPlayingMovies = () => {
   );
 
   const getNowPlayingMovies = async () => {
-    const data = await fetch(NOW_PLAYING_MOVIES_URL, TMDB_API_OPTIONS);
-
-    const json = await data.json();
-
-    dispatch(addNowPlayingMovies(json.results));
+    try {
+      const data = await fetch(NOW_PLAYING_MOVIES_URL, TMDB_API_OPTIONS);
+      const json = await data.json();
+      dispatch(addNowPlayingMovies(json.results));
+    } catch (error) {
+      // Optionally dispatch error to store or show UI feedback
+      console.error('Failed to fetch now playing movies:', error);
+    }
   };
   useEffect(() => {
     !nowPlayingMovies && getNowPlayingMovies();

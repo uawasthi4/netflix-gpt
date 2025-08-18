@@ -46,9 +46,11 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
+        alert('You have been signed out.');
       })
       .catch((error) => {
         // An error happened.
+        alert('Sign out failed. Please try again.');
         navigate("/error");
       });
   }
